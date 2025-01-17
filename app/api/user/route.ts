@@ -16,6 +16,7 @@ export const GET = async (req : NextRequest) => {
 
         if(!userId){
             user = await User.create({ clerkId: userId})
+            
         }
 
     } catch (error) {
