@@ -14,10 +14,12 @@ export const GET = async (req : NextRequest) => {
 
         let user = await User.findOne({ clerkId: userId })
 
+        // when the user sign in for the first time
         if(!userId){
             user = await User.create({ clerkId: userId})
-            
         }
+
+        return NextResponse.json(user, { status : 200 })
 
     } catch (error) {
         console.log("[users_GET]", error)
